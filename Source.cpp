@@ -1,8 +1,35 @@
-#include<iostream>
-#include <string>
-#include <stack>  
+
+//#include<iostream>
+
+#include <stack>
+#include<string>
+#include <stack>
+#include<string>
+#include <sstream>
+#include <cstdio>
+#include <cstdlib> 
+
 
 using namespace std;
+
+
+
+
+
+ /*template <typename T>
+    std::string to_string(T value)
+    {
+      //create an output string stream
+      std::ostringstream os ;
+
+      //throw the value into the string stream
+      os << value ;
+
+      //convert the string stream into a string and return
+      return os.str() ;
+    }
+
+*/
 
 string add(string x, string y)
 {
@@ -33,8 +60,6 @@ string add(string x, string y)
 			{
 				carry.push(2);
 				sumelement -= 20;
-
-
 			}*/
 			sum_stack.push(sumelement);
 		
@@ -57,7 +82,7 @@ string add(string x, string y)
 		{
 
 			int c = sum_stack.top();
-			string cc=to_string(c);
+			std::string cc=std::to_string(c);
 			sum += cc;
 			sum_stack.pop();
 
@@ -67,8 +92,6 @@ string add(string x, string y)
 			string cc = to_string(c);
 			sum += cc;
 			sum_stack.pop();
-
-
 		}*/
 
 
@@ -141,7 +164,7 @@ string multiply(string x, string y)
 			xelementint = atoi(xelement.c_str());
 			yelementint = atoi(yelement.c_str());
 			resultelement = xelementint*yelementint + carry.top();
-			resultstring = to_string(resultelement);
+			resultstring = std::to_string(resultelement);
 			lastnumberposition = resultstring.length() - 1;
 
 
@@ -181,7 +204,7 @@ string multiply(string x, string y)
 		{
 
 			int c = sum_stack.top();
-			string cc = to_string(c);
+			std::string cc = std::to_string(c);
 			result += cc;
 			sum_stack.pop();
 		}
@@ -197,7 +220,6 @@ string multiply(string x, string y)
 		 {
 			 cout << result_stack.top()<<"\n"; 
 			 result_stack.pop();
-
 		 }*/
 
 
@@ -226,11 +248,37 @@ string multiply(string x, string y)
 
 }
 
+string borrow (string x)
+{
+
+stack<int>borrow_stack;
+borrow_stack.push(0);
+
+
+
+
+}
+
+
+
+string substraction (string x , string y)
+{
+
+        int x_length = x.length();
+	int y_length = y.length();
+	string result = "";
+	stack<int> result_stack;
+	stack<int>borrow;
+	borrow.push(0);
+        borrow.push(0);
+	
+}
+
+
 int main()
 {
-	string test = multiply("123","654");
-	cout << test;
-
-
+	string test = substraction("55","22");
+	//std::cout << test;
+        printf("%s",test.c_str());
 	return 0;
 }
