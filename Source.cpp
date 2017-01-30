@@ -277,7 +277,7 @@ string substraction (string x , string y)
 
 int main()
 {
-	string test = substraction("55","22");
+	string test = multiply("55","22");
 	//std::cout << test;
         printf("%s",test.c_str());
 	return 0;
