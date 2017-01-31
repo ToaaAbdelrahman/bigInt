@@ -271,8 +271,106 @@ string substraction (string x , string y)
 	stack<int>borrow;
 	borrow.push(0);
         borrow.push(0);
+string firstelementx = x.substr(0,1);
+string firstelementy = y.substr(0,1);
+int fxint=atoi(firstelementx.c_str());
+int fyint=atoi(firstelementy.c_str());
+        if (x_length==y_length&&fxint>fyint)
+        {int flag = 0;
+
+        for ( int i = x_length;i>0;i--)
+
+        {
+        string xelement=x.substr(i-1,1);
+        string yelement=y.substr(i-1,1);
+        int xelementint=atoi(xelement.c_str());
+        int yelementint=atoi(yelement.c_str());
+       if (flag==0)
+{
+        if (xelementint>=yelementint)
+       { int resultelementint = xelementint-yelementint;
+        result_stack.push(resultelementint);
+
+}
+       else {
+              xelementint+=10;
+              flag=1;
+              int resultelementint = xelementint-yelementint;
+              result_stack.push(resultelementint);
+
+
+       }
+}
+else if (flag==1)
+               {
+               	xelementint--;
+                   if (xelementint==0||xelementint<yelementint)
+                   {
+                   	flag=1;
+                   	xelementint+=10;
+                   	int resultelementint = xelementint-yelementint;
+              result_stack.push(resultelementint);
+
+                   }
+                   else { //xelementint--;
+                   int resultelementint = xelementint-yelementint;
+              result_stack.push(resultelementint);
+              flag=0;}
+
+
+               }
+
+
+
+        }
+}
+
+else if (x_length>y_length) {
+	int remainder = x_length - y_length;
+		for (int i = 0; i < remainder; i++)
+		{
+			y.insert(0, 1,'0');
+			
+
+		}
+		return substraction(x, y);
+
+	}
+else if (y_length>x_length){
+int remainder = y_length - x_length;
+		for (int i = 0; i < remainder; i++)
+		{
+			x.insert(0, 1,'0');
+			
+
+		}
+		return "-"+substraction(y, x);
+
+}
+else if ( x_length==y_length&&fxint<fyint){
+return "-"+substraction(y,x);
+
+}
+
+        while (!result_stack.empty())
+        {
+            int temp=result_stack.top();
+            std::string ts=std::to_string(temp);
+            result+=ts;
+            result_stack.pop();
+        }
+        return result;
 	
 }
+string division (string x, string y)
+{
+
+
+
+
+
+}
+
 
 
 int main()
